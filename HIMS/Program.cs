@@ -495,7 +495,7 @@ namespace HIMS
         private static void defaultError()
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("Error encountered, please press enter to go back to main menu...");
+            Console.WriteLine("Error encountered, please press enter to go back to main menu....");
             Console.ResetColor();
         }
     }
