@@ -325,6 +325,7 @@ namespace HIMS
             if (physicians.Count > 0)
             {
                 PhysicianRecordDetails(physicians);
+                Console.WriteLine();
             }
             else
             {
@@ -375,7 +376,16 @@ namespace HIMS
 
         private static double HospitalFormDecimalField(string fieldType, double value, bool isEditable)
         {
-            Console.Write(fieldType + " (in cm) : ");
+            var unit = string.Empty;
+            if (fieldType.Trim().Equals("Weight", StringComparison.InvariantCultureIgnoreCase))
+            {
+                unit = "in cm";
+            }
+            else
+            {
+                unit = "kg";
+            }
+            Console.Write(fieldType + " ("+ unit + ") : ");
             if (isEditable) SendKeys.SendWait(Convert.ToString(value));
             double input = Convert.ToDouble(Console.ReadLine());
             return input;
