@@ -377,13 +377,13 @@ namespace HIMS
         private static double HospitalFormDecimalField(string fieldType, double value, bool isEditable)
         {
             var unit = string.Empty;
-            if (fieldType.Trim().Equals("Weight", StringComparison.InvariantCultureIgnoreCase))
+            if (fieldType.Trim().Equals("Height", StringComparison.InvariantCultureIgnoreCase))
             {
                 unit = "in cm";
             }
             else
             {
-                unit = "kg";
+                unit = "in kg";
             }
             Console.Write(fieldType + " ("+ unit + ") : ");
             if (isEditable) SendKeys.SendWait(Convert.ToString(value));
