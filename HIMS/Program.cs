@@ -151,7 +151,7 @@ namespace HIMS
 
                     Console.Write("Are you sure you want to delete this record (Yes/No)? ");
                     var response = Console.ReadLine();
-                    if (response.Equals("Yes", StringComparison.InvariantCultureIgnoreCase))
+                    if (response.Trim().Equals("Yes", StringComparison.InvariantCultureIgnoreCase))
                     {
                         var recordToBeDeleted = physicians.Single(r => r.Id == id);
                         physicians.Remove(recordToBeDeleted);
@@ -159,7 +159,7 @@ namespace HIMS
                         Console.WriteLine("Employee records successfully deleted.");
                         Console.ResetColor();
                     }
-                    else if (response.Equals("No", StringComparison.InvariantCultureIgnoreCase))
+                    else if (response.Trim().Equals("No", StringComparison.InvariantCultureIgnoreCase))
                     {
                         Console.ForegroundColor = ConsoleColor.Blue;
                         Console.WriteLine("Employee records not deleted.");
@@ -241,7 +241,7 @@ namespace HIMS
 
                         Console.Write("Are you sure you want to update employee records (Yes/No)? ");
                         var response = Console.ReadLine();
-                        if (response.Equals("Yes", StringComparison.InvariantCultureIgnoreCase))
+                        if (response.Trim().Equals("Yes", StringComparison.InvariantCultureIgnoreCase))
                         {
                             var prevRecordToBeDeleted = physicians.Single(r => r.Id == id);
                             bool result = physicians.Remove(prevRecordToBeDeleted);
@@ -254,7 +254,7 @@ namespace HIMS
                             Console.WriteLine("Employee records successfully updated.");
                             Console.ResetColor();
                         }
-                        else if (response.Equals("No", StringComparison.InvariantCultureIgnoreCase))
+                        else if (response.Trim().Equals("No", StringComparison.InvariantCultureIgnoreCase))
                         {
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("Employee records not updated.");
