@@ -488,7 +488,7 @@ namespace HIMS
             bool result = false;
             input = input.Trim();
 
-            var pattern = isDecimalAllowed == true ? @"^[0-9.]+$" : @"^[0-9]+$";
+            var pattern = isDecimalAllowed == true ? @"^[0-9. ]+$" : @"^[0-9 ]+$";
             var error = isDecimalAllowed == true ? "Invalid input, allow only numbers and period." : "Invalid input, allow only numbers.";
 
             if (System.Text.RegularExpressions.Regex.IsMatch(input, pattern))
