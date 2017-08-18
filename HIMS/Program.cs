@@ -142,11 +142,12 @@ namespace HIMS
                 Console.Write("Please enter employee ID to be deleted : ");
                 int id = Convert.ToInt32(Console.ReadLine());
 
-                physicians = physicians.Where(x => x.Id == id).ToList();
+                List<Physician> physicianRecords = new List<Physician>();
+                physicianRecords = physicians.Where(x => x.Id == id).ToList();
 
-                if (physicians.Count > 0)
+                if (physicianRecords.Count > 0)
                 {
-                    PhysicianRecordDetails(physicians);
+                    PhysicianRecordDetails(physicianRecords);
 
                     Console.Write("Are you sure you want to delete this record (Yes/No)? ");
                     var response = Console.ReadLine();
@@ -193,12 +194,13 @@ namespace HIMS
                 Console.Write("Please enter employee ID to update records : ");
                 int id = Convert.ToInt32(Console.ReadLine());
 
-                physicians = physicians.Where(x => x.Id == id).ToList();
+                List<Physician> physicianRecords = new List<Physician>();
+                physicianRecords = physicians.Where(x => x.Id == id).ToList();
                 Physician newPhysicianRecord = new Physician();
 
-                if (physicians.Count > 0)
+                if (physicianRecords.Count > 0)
                 {
-                    foreach (var physician in physicians)
+                    foreach (var physician in physicianRecords)
                     {
                         Console.WriteLine("-----------------------------------------------------");
                         Console.WriteLine("                Personal Information                 ");
@@ -319,11 +321,12 @@ namespace HIMS
             Console.Write("Please enter employee ID : ");
             int id = Convert.ToInt32(Console.ReadLine());
 
-            physicians = physicians.Where(x => x.Id == id).ToList();
+            List<Physician> physicianRecords = new List<Physician>();
+            physicianRecords = physicians.Where(x => x.Id == id).ToList();
 
-            if (physicians.Count > 0)
+            if (physicianRecords.Count > 0)
             {
-                PhysicianRecordDetails(physicians);
+                PhysicianRecordDetails(physicianRecords);
                 Console.WriteLine();
             }
             else
@@ -467,7 +470,7 @@ namespace HIMS
             bool result = false;
             input = input.Trim();
 
-            if (System.Text.RegularExpressions.Regex.IsMatch(input, @"^[a-zA-Z]+$"))
+            if (System.Text.RegularExpressions.Regex.IsMatch(input, @"^[a-zA-Z ]+$"))
             {
                 result = true;
             }
